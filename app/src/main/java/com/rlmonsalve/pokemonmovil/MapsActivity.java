@@ -41,6 +41,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
+import static android.R.attr.id;
+
 public class MapsActivity extends FragmentActivity implements
         OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
@@ -48,7 +50,8 @@ public class MapsActivity extends FragmentActivity implements
     private GoogleMap mGoogleMap;
     private ProgressDialog pDialog;
     private Context context;
-    private ArrayList pos, pokes;
+    private static ArrayList pos;
+    private static ArrayList pokes;
     LocationRequest mLocationRequest;
     GoogleApiClient mGoogleApiClient;
     LatLng latLng, pokeLatLng;
@@ -133,7 +136,7 @@ public class MapsActivity extends FragmentActivity implements
             markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.fire_red_animated));
             currLocationMarker = mGoogleMap.addMarker(markerOptions);
 
-            int i =0;
+            /*int i =0;
             Posicion pokepos;
             Pokemon imgBank;
             while(i<pos.size()){
@@ -141,14 +144,12 @@ public class MapsActivity extends FragmentActivity implements
                 imgBank = (Pokemon) pokes.get(i);
                 pokeLatLng = new LatLng(pokepos.getLatitud(),pokepos.getLongitud());
                 MarkerOptions pokeMarkerOptions = new MarkerOptions();
-                markerOptions.position(pokeLatLng);
-                markerOptions.title("Pokemon Position");
-                markerOptions.icon(BitmapDescriptorFactory.fromPath(imgBank.getImgUrl()));
-                currLocationMarker = mGoogleMap.addMarker(markerOptions);
+                pokeMarkerOptions.position(pokeLatLng);
+                pokeMarkerOptions.title("Pokemon Position");
+                pokeMarkerOptions.icon(BitmapDescriptorFactory.fromPath(imgBank.getImgUrl()));
+                currLocationMarker = mGoogleMap.addMarker(pokeMarkerOptions);
                 i++;
-            }
-
-
+            }*/
         }
 
         mLocationRequest = new LocationRequest();
@@ -159,9 +160,25 @@ public class MapsActivity extends FragmentActivity implements
 
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, (LocationListener) this);
 
-
-
     }
+
+    private void setMarkers(){
+        int i =0;
+        Posicion pokepos;
+        Pokemon imgBank;
+        while(i<pos.size()){
+            pokepos = (Posicion) pos.get(i);
+            imgBank = (Pokemon) pokes.get(i);
+            pokeLatLng = new LatLng(pokepos.getLatitud(),pokepos.getLongitud());
+            MarkerOptions pokeMarkerOptions = new MarkerOptions();
+            pokeMarkerOptions.position(pokeLatLng);
+            pokeMarkerOptions.title("Pokemon Position");
+            pokeMarkerOptions.icon(BitmapDescriptorFactory.fromPath(imgBank.getImgUrl()));
+            currLocationMarker = mGoogleMap.addMarker(pokeMarkerOptions);
+            i++;
+        }
+    }
+
 
     @Override
     public void onConnectionSuspended(int i) {
@@ -218,7 +235,7 @@ public class MapsActivity extends FragmentActivity implements
     }
 
     public void onVerificarRed(){
-        if (verificarRed() == true){
+        if (verificarRed()){
             new getData().execute();
         }
     }
@@ -227,7 +244,7 @@ public class MapsActivity extends FragmentActivity implements
         Log.d(TAG,"get");
         String response = null;
         try {
-            URL url = null;
+            URL url;
             url = new URL("http://190.144.171.172/function3.php?lat=11.0199414&lng=-74.8487154");
             URLConnection yc = url.openConnection();
             BufferedReader in = new BufferedReader(new InputStreamReader(
@@ -249,7 +266,7 @@ public class MapsActivity extends FragmentActivity implements
         Log.d(TAG,"get");
         String response = null;
         try {
-            URL url = null;
+            URL url;
             url = new URL("https://raw.githubusercontent.com/FTorrenegraG/Pokemon_json_example/master/example.json");
             URLConnection yc = url.openConnection();
             BufferedReader in = new BufferedReader(new InputStreamReader(
@@ -264,6 +281,53 @@ public class MapsActivity extends FragmentActivity implements
         } catch (IOException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    protected static void setPosData(String response){
+        String latitud,longitud;
+        int i;
+        pos = new ArrayList<Posicion>();
+
+        if (response != null){
+            try {
+                JSONArray posiciones = new JSONArray(response);
+                for (i=0; i < posiciones.length();i++){
+                    JSONObject c = posiciones.getJSONObject(i);
+                    latitud = c.getString("lt");
+                    longitud = c.getString("lng");
+                    pos.add(new Posicion(latitud,longitud));
+
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    protected static void setPokesData(String response){
+        int i, id;
+        String name, img;
+        pokes = new ArrayList<Pokemon>();
+        if (response != null){
+            try {
+                JSONArray pokemons = new JSONArray(response);
+                for (i=0; i < pokemons.length();i++){
+                    JSONObject c = pokemons.getJSONObject(i);
+                    id = Integer.parseInt(c.getString("Id"));
+                    name = c.getString("Name");
+                    //hp = Integer.parseInt(c.getString("Hp"));
+                    //atk = Integer.parseInt(c.getString("Attack"));
+                    //def = Integer.parseInt(c.getString("Defense"));
+                    //evo = Integer.parseInt(c.getString("ev_id"));
+                    img = c.getString("ImgUrl");
+                    pokes.add(new Pokemon(id,name,img));
+
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -286,43 +350,11 @@ public class MapsActivity extends FragmentActivity implements
             int i = 0;
             pos = new ArrayList<Posicion>();
 
-            if (response != null){
-                try {
-                    JSONArray posiciones = new JSONArray(response);
-                    for (i=0; i < posiciones.length();i++){
-                        JSONObject c = posiciones.getJSONObject(i);
-                        latitud = c.getString("lt");
-                        longitud = c.getString("lng");
-                        pos.add(new Posicion(latitud,longitud));
-
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+            setPosData(response);
 
             response = getPokeData();
-            i=0;
-            pokes = new ArrayList<Pokemon>();
-            if (response != null){
-                try {
-                    JSONArray pokemons = new JSONArray(response);
-                    for (i=0; i < pokemons.length();i++){
-                        JSONObject c = pokemons.getJSONObject(i);
-                        id = Integer.parseInt(c.getString("Id"));
-                        name = c.getString("Name");
-                        hp = Integer.parseInt(c.getString("Hp"));
-                        atk = Integer.parseInt(c.getString("Attack"));
-                        def = Integer.parseInt(c.getString("Defense"));
-                        evo = Integer.parseInt(c.getString("ev_id"));
-                        img = c.getString("ImgUrl");
-                        pokes.add(new Pokemon(id,name,hp,atk,def,evo,img));
 
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+            setPokesData(response);
 
             return null;
         }
@@ -333,6 +365,7 @@ public class MapsActivity extends FragmentActivity implements
             if(pDialog.isShowing()){
                 pDialog.dismiss();
             }
+            setMarkers();
         }
     }
 }

@@ -4,7 +4,7 @@ package com.rlmonsalve.pokemonmovil;
  * Created by Robert on 27/09/2016.
  */
 
-public class pkmonInstance {
+public class PkmonInstance {
 
     private int id;
     private Pokemon kind;

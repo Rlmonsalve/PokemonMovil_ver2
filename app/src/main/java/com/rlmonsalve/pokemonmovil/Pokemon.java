@@ -14,7 +14,13 @@ public class Pokemon {
     private int evolution;
     private String imgUrl;
 
-    public Pokemon(int id, String nombre, int hp, int atk, int def, int evo, String img){
+    public Pokemon(int id, String nombre, String img){
+        this.id = id;
+        this.name = nombre;
+        this.imgUrl = img;
+    }
+
+    /*public Pokemon(int id, String nombre, int hp, int atk, int def, int evo, String img){
         this.id = id;
         this.name = nombre;
         this.maxHp = hp;
@@ -22,7 +28,7 @@ public class Pokemon {
         this.maxDefense = def;
         this.evolution = evo;
         this.imgUrl = img;
-    }
+    }*/
 
     public String getName() {
         return name;
