@@ -1,6 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="primary_light">#C5CAE9</color>
+    <color name="colorAccent">#9E9E9E</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="text_icons">#ffffff</color>
+
+    <color name="bg_login">#ffffff</color>
+    <color name="bg_register">#2e3237</color>
+    <color name="bg_main">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="input_login">#222222</color>
+    <color name="input_login_hint">#999999</color>
+    <color name="input_register">#888888</color>
+    <color name="input_register_bg">#3b4148</color>
+    <color name="input_register_hint">#5e6266</color>
+    <color name="health_high">#18c720</color>
+    <color name="btn_login_bg">#eceef1</color>
+    <color name="lbl_name">#333333</color>
+
+    <color name="background">#228B22</color>
+    <color name="bg_team">#4682B4</color>
+    <color name="bg_bag">#FFD700</color>
+    <color name="bg_item">#FF8C00</color>
+    <color name="bg_pk">#1E90FF</color>
+    <color name="white_semi_transparent">#a0ffffff</color>
+    <color name="attackBtn">#FF0000</color>
+    <color name="itemBtn">#FFD700</color>
+    <color name="pokeBtn">#32CD32</color>
+    <color name="runBtn">#1E90FF</color>
+    <color name="health_low">#cf0a01</color>
+    <color name="potion_btn">#A02FF2</color>
+    <color name="max_potion_btn">#F79AE1</color>
+
 </resources>

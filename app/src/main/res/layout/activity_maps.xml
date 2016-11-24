@@ -1,8 +1,61 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.rlmonsalve.pokemonmovil.MapsActivity"
+    android:id="@+id/activity_maps"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.rlmonsalve.pokemonmovil.MapsActivity" />
+    android:layout_height="wrap_content"
+    android:background="@color/primary_text"
+    android:gravity="center|bottom">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        map:mapType="normal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/white_semi_transparent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/btnTeam"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/team_icon"
+        android:textColor="@color/primary_text"
+        android:onClick="startTeamActivity"
+        android:layout_alignTop="@id/imageView3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp" />
+
+    <ImageView
+        android:id="@+id/btnBag"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bag_icon"
+        android:textColor="@color/primary_text"
+        android:onClick="startBagActivity"
+        android:layout_alignTop="@id/imageView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp" />
+
+</RelativeLayout>

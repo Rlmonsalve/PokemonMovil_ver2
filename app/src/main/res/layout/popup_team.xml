@@ -1,0 +1,218 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/activity_team"
+    android:background="@color/bg_team"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.rlmonsalve.pokemonmovil.TeamActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/vsv"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/bg_pk"
+                android:tag="0"
+                android:onClick="startPokeInfoActivity"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:srcCompat="@drawable/pokeball_sprite"
+                    android:id="@+id/imageTeam1"
+                    android:visibility="invisible"/>
+
+                <TextView
+                    android:text="TextView"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textTeam1"
+                    android:visibility="invisible"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/bg_pk"
+                android:tag="1"
+                android:onClick="startPokeInfoActivity"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:srcCompat="@drawable/pokeball_sprite"
+                    android:id="@+id/imageTeam2"
+                    android:visibility="invisible"/>
+
+                <TextView
+                    android:text="TextView"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textTeam2"
+                    android:layout_marginLeft="29dp"
+                    android:layout_marginStart="29dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/imageTeam2"
+                    android:layout_toEndOf="@+id/imageTeam2"
+                    android:visibility="invisible"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/bg_pk"
+                android:tag="2"
+                android:onClick="startPokeInfoActivity"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:srcCompat="@drawable/pokeball_sprite"
+                    android:id="@+id/imageTeam3"
+                    android:visibility="invisible"/>
+
+                <TextView
+                    android:text="TextView"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textTeam3"
+                    android:layout_marginLeft="29dp"
+                    android:layout_marginStart="29dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/imageTeam3"
+                    android:layout_toEndOf="@+id/imageTeam3"
+                    android:visibility="invisible"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/bg_pk"
+                android:tag="3"
+                android:onClick="startPokeInfoActivity"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:srcCompat="@drawable/pokeball_sprite"
+                    android:id="@+id/imageTeam4"
+                    android:visibility="invisible"/>
+
+                <TextView
+                    android:text="TextView"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textTeam4"
+                    android:layout_marginLeft="29dp"
+                    android:layout_marginStart="29dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/imageTeam4"
+                    android:layout_toEndOf="@+id/imageTeam4"
+                    android:visibility="invisible"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/bg_pk"
+                android:tag="4"
+                android:onClick="startPokeInfoActivity"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:srcCompat="@drawable/pokeball_sprite"
+                    android:id="@+id/imageTeam5"
+                    android:visibility="invisible"/>
+
+                <TextView
+                    android:text="TextView"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textTeam5"
+                    android:layout_marginLeft="29dp"
+                    android:layout_marginStart="29dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/imageTeam5"
+                    android:layout_toEndOf="@+id/imageTeam5"
+                    android:visibility="invisible"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:background="@color/bg_pk"
+                android:tag="5"
+                android:onClick="startPokeInfoActivity"
+                android:layout_weight="1">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:srcCompat="@drawable/pokeball_sprite"
+                    android:id="@+id/imageTeam6"
+                    android:visibility="invisible"/>
+
+                <TextView
+                    android:text="TextView"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textTeam6"
+                    android:visibility="invisible"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

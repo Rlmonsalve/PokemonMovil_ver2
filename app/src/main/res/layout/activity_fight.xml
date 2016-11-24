@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/activity_fight"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    tools:context="com.rlmonsalve.pokemonmovil.FightActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:background="@drawable/background"
+        android:layout_weight="0.6">
+
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            app:srcCompat="@drawable/pokeball_sprite"
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/imagePoke2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:background="@color/white_semi_transparent"
+            android:id="@+id/imageView"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_alignTop="@+id/textHit1"
+            android:layout_alignBottom="@+id/imagePoke1"
+            android:layout_toLeftOf="@+id/imagePoke1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:background="@color/white_semi_transparent"
+            android:id="@+id/imageView2"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignTop="@+id/textHit2"
+            android:layout_alignBottom="@+id/imagePoke2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@+id/imagePoke2"
+            android:layout_toEndOf="@+id/imagePoke2" />
+
+        <ProgressBar
+            android:id="@+id/ProgressBar1"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="rtl"
+            android:maxHeight="15dip"
+            android:minHeight="15dip"
+            android:maxWidth="170dip"
+            android:minWidth="170dip"
+            android:progress="50"
+            android:progressDrawable="@drawable/progress_bar_health"
+            android:layout_alignBottom="@+id/imagePoke1"
+            android:layout_alignLeft="@+id/imagePoke2"
+            android:layout_alignStart="@+id/imagePoke2"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginBottom="30dp"/>
+
+        <ProgressBar
+            android:id="@+id/ProgressBar2"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layoutDirection="ltr"
+            android:maxHeight="15dip"
+            android:minHeight="15dip"
+            android:maxWidth="170dip"
+            android:minWidth="170dip"
+            android:progress="50"
+            android:progressDrawable="@drawable/progress_bar_health"
+            android:layout_alignBottom="@+id/imagePoke2"
+            android:layout_alignRight="@+id/imagePoke1"
+            android:layout_alignEnd="@+id/imagePoke1"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginBottom="30dp" />
+
+        <TextView
+            android:text="Pokemon 2"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textSize="16dp"
+            android:id="@+id/textView1"
+            android:textColor="@color/primary_text"
+            android:layout_above="@+id/ProgressBar1"
+            android:layout_alignRight="@+id/ProgressBar1"
+            android:layout_alignEnd="@+id/ProgressBar1" />
+
+        <TextView
+            android:text="Pokemon 1"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/primary_text"
+            android:textSize="16dp"
+            android:id="@+id/textView2"
+            android:layout_above="@+id/ProgressBar2"
+            android:layout_alignLeft="@+id/ProgressBar2"
+            android:layout_alignStart="@+id/ProgressBar2" />
+
+        <TextView
+            android:text="Hp1/Hp1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:id="@+id/textHp1"
+            android:textColor="@color/primary_text"
+            android:layout_marginRight="8dp"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_toLeftOf="@+id/textView1"
+            android:layout_toStartOf="@+id/textView1" />
+
+        <TextView
+            android:text="Hp2/Hp2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:id="@+id/textHp2"
+            android:textColor="@color/primary_text"
+            android:layout_marginLeft="8dp"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2" />
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            app:srcCompat="@drawable/pokeball_sprite"
+            android:layout_marginRight="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/imagePoke1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:text="HIT"
+            android:textSize="30dp"
+            android:textColor="@color/health_low"
+            android:visibility="invisible"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ProgressBar1"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2"
+            android:id="@+id/textHit1" />
+
+        <TextView
+            android:text="HIT"
+            android:textSize="30dp"
+            android:textColor="@color/health_low"
+            android:visibility="invisible"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textHit2"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_alignRight="@+id/textHp1"
+            android:layout_alignEnd="@+id/textHp1" />
+
+        <TextView
+            android:text="Heal"
+            android:textSize="30dp"
+            android:textColor="@color/health_high"
+            android:visibility="invisible"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textHeal"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_alignRight="@+id/textHp1"
+            android:layout_alignEnd="@+id/textHp1" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/vsv"
+        android:layout_weight="0.3">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text=""
+                android:textSize="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textPrompt" />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="0.05"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:layout_weight="1"
+            android:weightSum="1">
+
+            <Button
+                android:text="Attack"
+                android:textSize="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/buttonAttack"
+                android:textStyle="bold"
+                android:layout_marginRight="8dp"
+                android:background="@color/attackBtn"
+                android:onClick="attackEvent"
+                android:layout_weight="0.5" />
+
+            <Button
+                android:text="Items"
+                android:textSize="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/buttonItems"
+                android:textStyle="bold"
+                android:onClick="itemsEvent"
+                android:background="@color/itemBtn"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:layout_weight="1"
+            android:weightSum="1">
+
+            <Button
+                android:text="Pokemon"
+                android:textSize="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/buttonTeam"
+                android:textStyle="bold"
+                android:layout_marginRight="8dp"
+                android:background="@color/pokeBtn"
+                android:onClick="pokemonEvent"
+                android:layout_weight="0.5" />
+
+            <Button
+                android:text="Run"
+                android:textSize="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/buttonRun"
+                android:textStyle="bold"
+                android:background="@color/runBtn"
+                android:onClick="runEvent"
+                android:layout_weight="0.5" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
